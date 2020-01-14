@@ -1,8 +1,19 @@
 
 table {
+    margin: 1em;
     border: solid 1px;
+}
+
+button {
+    margin: 1em 1em 3em 1em;
 }
 
 td {
     border: solid 1px;
 }
+
+input[type=number] {
+    -webkit-appearance: textfield;
+    -moz-appearance:    textfield;
+    appearance:         textfield;
+  }

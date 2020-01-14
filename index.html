@@ -9,6 +9,32 @@
         <div id="container">
             <h1>Library</h1>
             <div>
+                <!-- <button id="addBook">Add book</button> -->
+
+                <!-- form for books -->
+
+                <form id="form">
+                    <label for="authorinput">Author:</label>
+                    <input type="text" name="author" value='Author' id="authorinput">
+
+                    <label for="titleinput">Title:</label>
+                    <input type="text" name="title" value="Title" id="titleinput"> <br>
+
+                    <label for="pagesinput">Number of pages:</label>
+                    <input type="number" name="pages" value="0" id="pagesinput">
+
+                    <label for="isreadinput">Have you read it already?</label>
+                    <input list="isread" name="isread" id="isreadinput">
+                    <datalist id="isread">
+                        <option value="Read"></option>
+                        <option value="Not read"></option>
+                    </datalist>
+                    </input type="submit">
+                    
+                    
+                </form>
+                <button id="send">Send</button>
+
                 <table id="books">
                     <tr>
                         <th>Author</th>
