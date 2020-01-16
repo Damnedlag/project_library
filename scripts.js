@@ -3,10 +3,12 @@ let titles = [];
 
 const booksTable = document.getElementById("books")
 
-const rmvBook = (myLibrary, removableTitle) => {
+const rmvBook = (removableTitle) => {
     console.log(removableTitle)
     let index = myLibrary.map(function(e) {return e.title }).indexOf(removableTitle);
     myLibrary.splice(index,1);
+    let index2 = titles.indexOf(removableTitle);
+    titles.splice(index2,1);
     }
 
 
