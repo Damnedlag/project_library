@@ -12,6 +12,15 @@ td {
     border: solid 1px;
 }
 
+.rmvbutton {
+    background-color: red;
+    margin: 0em
+}
+
+.rmvcell {
+    text-align: center;
+}
+
 input[type=number] {
     -webkit-appearance: textfield;
     -moz-appearance:    textfield;
