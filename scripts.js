@@ -3,15 +3,6 @@ let titles = [];
 
 const booksTable = document.getElementById("books")
 
-const rmvBook = (removableTitle) => {
-    console.log(removableTitle)
-    let index = myLibrary.map(function(e) {return e.title }).indexOf(removableTitle);
-    myLibrary.splice(index,1);
-    let index2 = titles.indexOf(removableTitle);
-    titles.splice(index2,1);
-    }
-
-
 //constructor
 class Book {
     constructor(title, author, pages, isread) {
@@ -25,45 +16,69 @@ class Book {
     addTable() {
         let row = booksTable.insertRow(1);
             row.id = this.title;
+
+            //remove book row buttons
             let rmvcell = row.insertCell(0);
             let rmvbutton = document.createElement('button')
             rmvcell.appendChild(rmvbutton);
             rmvcell.classList = "rmvcell"
             rmvbutton.classList = "rmvbutton"
             rmvbutton.textContent = "X";
-            let cell0 = row.insertCell(0);
-            cell0.innerHTML = this.isread;
-            let cell1 = row.insertCell(0);
-            cell1.innerHTML = this.pages;
-            let cell2 = row.insertCell(0);
-            cell2.innerHTML = this.title;
-            let cell3 = row.insertCell(0);
-            cell3.innerHTML = this.author;
 
+            //status-row buttons
+            let statuscell = row.insertCell(0);
+            let statusButton = document.createElement('button')
+            statuscell.appendChild(statusButton);
+            statuscell.classList = "statuscell"
+            statusButton.classList = "statusbutton";
+            statusButton.textContent = this.isread;
+            this.isread == "Read" ? statuscell.style.backgroundColor = "green" : statuscell.style.backgroundColor = "red"
+
+            //list rows
+            let cell0 = row.insertCell(0);
+            cell0.innerHTML = this.pages;
+            let cell1 = row.insertCell(0);
+            cell1.innerHTML = this.title;
+            let cell2 = row.insertCell(0);
+            cell2.innerHTML = this.author;
+
+            //eventlisteners for the buttons in the list
             rmvbutton.addEventListener('click', e = () => {
                 let i = document.getElementById(this.title).rowIndex;
                 booksTable.deleteRow(i);
-                rmvBook(myLibrary, this.title)
+                rmvBook(this.title)
+            })
+            statusButton.addEventListener('click', e = () => {
+                this.isread == "Read" ? this.isread = "Not read" : this.isread = "Read";
+                statusButton.textContent = this.isread;
+                this.isread == "Read" ? statuscell.style.backgroundColor = "green" : statuscell.style.backgroundColor = "red"
             })
     
     
     }}
 
-// do stuff
-    function addBookToLibrary(title) {
+// ads books to the library
+ function addBookToLibrary(title) {
     myLibrary.push(title)
     title.addTable();
  }
+//removes book from the library
+ const rmvBook = (removableTitle) => {
+    console.log(removableTitle)
+    let index = myLibrary.map(function(e) {return e.title }).indexOf(removableTitle);
+    myLibrary.splice(index,1);
+    let index2 = titles.indexOf(removableTitle);
+    titles.splice(index2,1);
+}
 
+
+ //function to handle input from the form
 const addBook = document.getElementById('send')
-
 addBook.addEventListener('click', e = () => {
     let newAuthor = document.getElementById('authorinput').value;
     let newTitle = document.getElementById('titleinput').value;
     for (const title of titles) {
-        console.log(newTitle)
         if (newTitle === title) { 
-            console.log(title)
             return alert("This book is already in the library!")}
     }
     let newPages = document.getElementById('pagesinput').value;
@@ -76,7 +91,7 @@ addBook.addEventListener('click', e = () => {
 
 
 
-
+//books for demo
 const hobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Not read')
 const martian = new Book('The Martian', 'Andy Weir', 369, "Read")
 

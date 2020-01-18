@@ -17,7 +17,12 @@ td {
     margin: 0em
 }
 
-.rmvcell {
+.statusbutton {
+    margin: 0em;
+}
+
+.rmvcell, .statuscell {
+    min-width: 7em;
     text-align: center;
 }
 
