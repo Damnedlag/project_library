@@ -54,7 +54,6 @@ class Book {
                 myLibrary[index].isread === "Read" ? myLibrary[index].isread = "Unread" : myLibrary[index].isread = "Read";
                 populateStorage();
                 statusButton.textContent = myLibrary[index].isread;
-                console.log(this.isread)
                 myLibrary[index].isread == "Read" ? statuscell.style.backgroundColor = "green" : statuscell.style.backgroundColor = "red";
             })
     }}
@@ -71,12 +70,6 @@ class Book {
     titles.splice(index2,1);
     populateStorage();
 }
-//updates status
-//  const changeStatus = (updatableTitle) => {
-//     let index = myLibrary.map(function(e) {return e.title }).indexOf(updatableTitle);
-//     myLibrary[index].isread === "Read" ? myLibrary[index].isread = "Unread" : myLibrary[index].isread = "Read";
-//     populateStorage();
-// }
 
  //function to handle input from the form
 const addBook = document.getElementById('send')
