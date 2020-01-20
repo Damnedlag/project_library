@@ -114,6 +114,5 @@ if(!localStorage.getItem('myLibrary')) {
     populateStorage();
   }
   else {
-    console.log('van')
     setLibrary();
   }

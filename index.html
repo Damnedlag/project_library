@@ -4,6 +4,7 @@
         <title>Project: Library</title>
         <link rel="stylesheet" href="styles.css">
         <script src="checkstorage.js"></script>
+        <meta charset="UTF-8">
     </head>
 
     <body>
@@ -24,12 +25,12 @@
                     <input type="number" name="pages" value="0" id="pagesinput">
 
                     <label for="isreadinput">Have you read it already?</label>
-                    <input list="isread" name="isread" id="isreadinput">
+                    <select list="isread" name="isread" id="isreadinput">
                     <datalist id="isread">
-                        <option value="Read"></option>
-                        <option value="Not read"></option>
+                        <option value="Read">Read</option>
+                        <option value="Not read">Not read</option>
                     </datalist>
-                    </input type="submit">
+                </select type="submit">
 
                     
                 </form>
