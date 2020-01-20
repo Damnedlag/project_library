@@ -1,7 +1,19 @@
-
 table {
     margin: 1em;
     border: solid 1px;
+}
+
+body {
+    font-family: "Sailec-Regular", system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: rgba(245, 245, 245, 0.753);
+    background-color: black;
+}
+
+.grey {
+    border-radius: 1em;
+    padding: 0.5em;
+    justify-content: center;
+    background-color:rgb(80,80,80, .85);
 }
 
 button {
@@ -31,3 +43,19 @@ input[type=number] {
     -moz-appearance:    textfield;
     appearance:         textfield;
   }
+
+form {
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+    max-width: 60%;
+}
+
+#list {
+    padding: 5em 0em 0em 0em;
+}
+
+#container {
+    width: 80%;
+    margin: 0em 0em 0em 10em;
+}

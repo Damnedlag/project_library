@@ -1,5 +1,4 @@
 let myLibrary = [];
-let titles = [];
 
 const booksTable = document.getElementById("books")
 
@@ -10,7 +9,6 @@ class Book {
     this.pages = pages;
     this.title = title;
     this.author = author;
-    titles.push(this.title);
     }
     info() { return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isread}` }
     addTable() {
@@ -58,7 +56,7 @@ class Book {
             })
     }}
 
-// ads books to the library
+// adds books to the library
  function addBookToLibrary(title) {
     title.addTable();
  }
@@ -66,8 +64,6 @@ class Book {
  const rmvBook = (removableTitle) => {
     let index = myLibrary.map(function(e) {return e.title }).indexOf(removableTitle);
     myLibrary.splice(index,1);
-    let index2 = titles.indexOf(removableTitle);
-    titles.splice(index2,1);
     populateStorage();
 }
 
@@ -76,6 +72,8 @@ const addBook = document.getElementById('send')
 addBook.addEventListener('click', e = () => {
     let newAuthor = document.getElementById('authorinput').value;
     let newTitle = document.getElementById('titleinput').value;
+
+    let titles = myLibrary.map(function(e) {return e.title});
     for (const title of titles) {
         if (newTitle === title) { 
             return alert("This book is already in the library!")}
@@ -119,10 +117,3 @@ if(!localStorage.getItem('myLibrary')) {
     console.log('van')
     setLibrary();
   }
-
-//books for demo
-// const hobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Unread')
-// const martian = new Book('The Martian', 'Andy Weir', 369, "Read")
-
-// addBookToLibrary(hobbit);
-// addBookToLibrary(martian)
